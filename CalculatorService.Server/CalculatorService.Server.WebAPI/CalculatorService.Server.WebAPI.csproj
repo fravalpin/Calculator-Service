@@ -14,8 +14,4 @@
     <ProjectReference Include="..\CalculatorService.Server.Infrastructure\CalculatorService.Server.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 </Project>

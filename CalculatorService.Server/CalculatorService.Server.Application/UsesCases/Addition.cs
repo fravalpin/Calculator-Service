@@ -4,7 +4,7 @@ using MediatR;
 
 namespace CalculatorService.Server.Application.UsesCases
 {
-    public record AdditionRequest(double[]? Operands) : IRequest<double>;
+    public record AdditionRequest(double[]? Addends) : IRequest<double>;
     public class AdditionRequestHandler : IRequestHandler<AdditionRequest, double>
     {
         public AdditionRequestHandler()
@@ -13,7 +13,7 @@ namespace CalculatorService.Server.Application.UsesCases
 
         public Task<double> Handle(AdditionRequest request, CancellationToken cancellationToken)
         {
-            Addition addition = new(request.Operands!);
+            Addition addition = new(request.Addends!);
             return Task.FromResult(addition.Calculate());
         }
     }
@@ -22,7 +22,7 @@ namespace CalculatorService.Server.Application.UsesCases
     {
         public AdditionValidator()
         {
-            RuleFor(p => p.Operands)
+            RuleFor(p => p.Addends)
                 .Must(p => p != null && p.Length > 1)
                 .WithMessage("The request should include at least two numeric operands to add");
         }

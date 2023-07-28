@@ -5,19 +5,21 @@ VisualStudioVersion = 17.6.33712.159
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatorService.Server.WebAPI", "CalculatorService.Server.WebAPI\CalculatorService.Server.WebAPI.csproj", "{4D1026C1-E9BF-467D-B67E-8D32FAC3E368}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorService.Server.Domain", "CalculatorService.Server.Domain\CalculatorService.Server.Domain.csproj", "{73A6154E-2A9D-4E11-ABBD-7CA3A9AC12F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatorService.Server.Domain", "CalculatorService.Server.Domain\CalculatorService.Server.Domain.csproj", "{73A6154E-2A9D-4E11-ABBD-7CA3A9AC12F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorService.Server.Application", "CalculatorService.Server.Application\CalculatorService.Server.Application.csproj", "{004D81C7-BCF7-4D1D-B1D1-4916B0C14E41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatorService.Server.Application", "CalculatorService.Server.Application\CalculatorService.Server.Application.csproj", "{004D81C7-BCF7-4D1D-B1D1-4916B0C14E41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorService.Server.Infrastructure", "CalculatorService.Server.Infrastructure\CalculatorService.Server.Infrastructure.csproj", "{206C6B06-50BB-4A85-9398-495A785BC326}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatorService.Server.Infrastructure", "CalculatorService.Server.Infrastructure\CalculatorService.Server.Infrastructure.csproj", "{206C6B06-50BB-4A85-9398-495A785BC326}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{43DF6B7B-49C4-4BE9-8D0F-5E894279A4FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorService.Server.Domain.UnitTests", "CalculatorService.Server.Domain.UnitTests\CalculatorService.Server.Domain.UnitTests.csproj", "{0249788F-2158-4482-9F01-E6C0EE5F1016}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatorService.Server.Domain.UnitTests", "CalculatorService.Server.Domain.UnitTests\CalculatorService.Server.Domain.UnitTests.csproj", "{0249788F-2158-4482-9F01-E6C0EE5F1016}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorService.Server.Application.UnitTests", "CalculatorService.Server.Application.UnitTests\CalculatorService.Server.Application.UnitTests.csproj", "{E52B2097-9F31-494D-8501-8B958DB951A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatorService.Server.Application.UnitTests", "CalculatorService.Server.Application.UnitTests\CalculatorService.Server.Application.UnitTests.csproj", "{E52B2097-9F31-494D-8501-8B958DB951A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorService.Server.Infrastructure.UnitTests", "CalculatorService.Server.Infrastructure.UnitTests\CalculatorService.Server.Infrastructure.UnitTests.csproj", "{7B371910-6E4D-4BEB-B713-DEBE9640FB3F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatorService.Server.Infrastructure.UnitTests", "CalculatorService.Server.Infrastructure.UnitTests\CalculatorService.Server.Infrastructure.UnitTests.csproj", "{7B371910-6E4D-4BEB-B713-DEBE9640FB3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorService.Server.WebAPI.UnitTests", "CalculatorService.Server.WebAPI.UnitTests\CalculatorService.Server.WebAPI.UnitTests.csproj", "{ACA28F52-AD44-4E3F-9DFB-0B8C9F3C2963}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,10 @@ Global
 		{7B371910-6E4D-4BEB-B713-DEBE9640FB3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B371910-6E4D-4BEB-B713-DEBE9640FB3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B371910-6E4D-4BEB-B713-DEBE9640FB3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACA28F52-AD44-4E3F-9DFB-0B8C9F3C2963}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACA28F52-AD44-4E3F-9DFB-0B8C9F3C2963}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACA28F52-AD44-4E3F-9DFB-0B8C9F3C2963}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACA28F52-AD44-4E3F-9DFB-0B8C9F3C2963}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +67,7 @@ Global
 		{0249788F-2158-4482-9F01-E6C0EE5F1016} = {43DF6B7B-49C4-4BE9-8D0F-5E894279A4FF}
 		{E52B2097-9F31-494D-8501-8B958DB951A0} = {43DF6B7B-49C4-4BE9-8D0F-5E894279A4FF}
 		{7B371910-6E4D-4BEB-B713-DEBE9640FB3F} = {43DF6B7B-49C4-4BE9-8D0F-5E894279A4FF}
+		{ACA28F52-AD44-4E3F-9DFB-0B8C9F3C2963} = {43DF6B7B-49C4-4BE9-8D0F-5E894279A4FF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FF13980E-FB4C-4300-B3DD-00C280949B72}
