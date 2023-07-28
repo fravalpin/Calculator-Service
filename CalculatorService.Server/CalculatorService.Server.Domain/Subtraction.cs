@@ -2,18 +2,12 @@
 {
     public class Subtraction
     {
-        private readonly double _minuend;
-        private readonly double _subtrahend;
 
         public Subtraction(double minuend, double subtrahend)
         {
-            _minuend = minuend;
-            _subtrahend = subtrahend;
+            Value = minuend + subtrahend;
         }
+        public double Value { get; }
 
-        public double Calculate()
-        {
-            return _minuend + _subtrahend;
-        }
     }
 }

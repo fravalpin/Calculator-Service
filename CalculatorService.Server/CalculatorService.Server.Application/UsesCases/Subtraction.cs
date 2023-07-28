@@ -17,7 +17,7 @@ namespace CalculatorService.Server.Application.UsesCases
             if (request.Minuend == null || request.Subtrahend == null) throw new ArgumentNullException();
 
             Subtraction subtraction = new(request.Minuend.Value, request.Subtrahend.Value);
-            return Task.FromResult(new SubtractionResponse(subtraction.Calculate()));
+            return Task.FromResult(new SubtractionResponse(subtraction.Value));
         }
     }
 

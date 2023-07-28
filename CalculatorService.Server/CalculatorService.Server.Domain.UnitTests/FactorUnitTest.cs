@@ -11,10 +11,9 @@ namespace CalculatorService.Server.Domain.UnitTests
         {
             //setup
             double[] factors = null;
-            Factor factor = new(factors);
 
             //act
-            Action act = () => factor.Calculate();
+            Action act = () => new Factor(factors);
 
             //asserts
             act.Should().Throw<ArgumentNullException>();
@@ -25,10 +24,9 @@ namespace CalculatorService.Server.Domain.UnitTests
         {
             //setup
             double[] factors = new double[] { 1 };
-            Factor factor = new(factors);
 
             //act
-            Action act = () => factor.Calculate();
+            Action act = () => new Factor(factors);
 
             //asserts
             act.Should().Throw<ArgumentException>();
@@ -39,13 +37,12 @@ namespace CalculatorService.Server.Domain.UnitTests
         {
             //setup
             double[] factors = new double[] { 1, 1 };
-            Factor factor = new(factors);
 
             //act
-            double result = factor.Calculate();
+            Factor factor = new(factors);
 
             //asserts
-            result.Should().Be(1);
+            factor.Value.Should().Be(1);
         }
 
         [Fact]
@@ -53,13 +50,12 @@ namespace CalculatorService.Server.Domain.UnitTests
         {
             //setup
             double[] factors = new double[] { 1.5, 1.5 };
-            Factor factor = new(factors);
 
             //act
-            double result = factor.Calculate();
+            Factor factor = new(factors);
 
             //asserts
-            result.Should().Be(2.25);
+            factor.Value.Should().Be(2.25);
         }
 
         [Fact]
@@ -67,13 +63,12 @@ namespace CalculatorService.Server.Domain.UnitTests
         {
             //setup
             double[] factors = new double[] { -1, -1 };
-            Factor factor = new(factors);
 
             //act
-            double result = factor.Calculate();
+            Factor factor = new(factors);
 
             //asserts
-            result.Should().Be(1);
+            factor.Value.Should().Be(1);
         }
 
         [Fact]
@@ -81,13 +76,12 @@ namespace CalculatorService.Server.Domain.UnitTests
         {
             //setup
             double[] factors = new double[] { 8, 3, 2 };
-            Factor factor = new(factors);
 
             //act
-            double result = factor.Calculate();
+            Factor factor = new(factors);
 
             //asserts
-            result.Should().Be(48);
+            factor.Value.Should().Be(48);
         }
 
     }

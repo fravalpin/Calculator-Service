@@ -17,7 +17,7 @@ namespace CalculatorService.Server.Application.UsesCases
             if (request.Factors == null) throw new ArgumentNullException();
 
             Factor addition = new(request.Factors!);
-            return Task.FromResult(new FactorResponse(addition.Calculate()));
+            return Task.FromResult(new FactorResponse(addition.Value));
         }
     }
 

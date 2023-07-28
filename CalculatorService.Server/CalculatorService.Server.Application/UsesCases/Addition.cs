@@ -15,7 +15,7 @@ namespace CalculatorService.Server.Application.UsesCases
         public Task<AdditionResponse> Handle(AdditionRequest request, CancellationToken cancellationToken)
         {
             Addition addition = new(request.Addends!);
-            return Task.FromResult(new AdditionResponse(addition.Calculate()));
+            return Task.FromResult(new AdditionResponse(addition.Value));
         }
     }
 

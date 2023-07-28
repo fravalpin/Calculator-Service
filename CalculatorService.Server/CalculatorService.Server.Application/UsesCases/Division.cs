@@ -31,7 +31,7 @@ namespace CalculatorService.Server.Application.UsesCases
                 .NotEmpty() .WithMessage(ErrorMessage);
             RuleFor(p => p.Divisor)
                 .NotEmpty().WithMessage(ErrorMessage)
-                .NotEqual(0) .WithMessage("Divisor can't be zero");
+                .NotEqual(0).WithMessage("Divisor can't be zero");
         }
     }
 

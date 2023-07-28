@@ -12,13 +12,12 @@ namespace CalculatorService.Server.Domain.UnitTests
             //setup
             double minuend = 1;
             double subtrahend = -1;
-            Subtraction subtraction = new(minuend, subtrahend);
 
             //act
-            double result = subtraction.Calculate();
+            Subtraction subtraction = new(minuend, subtrahend);
 
             //asserts
-            result.Should().Be(0);
+            subtraction.Value.Should().Be(0);
         }
 
         [Fact]
@@ -27,13 +26,12 @@ namespace CalculatorService.Server.Domain.UnitTests
             //setup
             double minuend = 1.5;
             double subtrahend = -1.5;
-            Subtraction subtraction = new(minuend, subtrahend);
 
             //act
-            double result = subtraction.Calculate();
+            Subtraction subtraction = new(minuend, subtrahend);
 
             //asserts
-            result.Should().Be(0);
+            subtraction.Value.Should().Be(0);
         }
 
         [Fact]
@@ -42,13 +40,12 @@ namespace CalculatorService.Server.Domain.UnitTests
             //setup
             double minuend = -1;
             double subtrahend = -1;
-            Subtraction subtraction = new(minuend, subtrahend);
 
             //act
-            double result = subtraction.Calculate();
+            Subtraction subtraction = new(minuend, subtrahend);
 
             //asserts
-            result.Should().Be(-2);
+            subtraction.Value.Should().Be(-2);
         }
 
         [Fact]
@@ -57,13 +54,12 @@ namespace CalculatorService.Server.Domain.UnitTests
             //setup
             double minuend = 3;
             double subtrahend = -7;
-            Subtraction subtraction = new(minuend, subtrahend);
 
             //act
-            double result = subtraction.Calculate();
+            Subtraction subtraction = new(minuend, subtrahend);
 
             //asserts
-            result.Should().Be(-4);
+            subtraction.Value.Should().Be(-4);
         }
 
         [Fact]
@@ -72,13 +68,12 @@ namespace CalculatorService.Server.Domain.UnitTests
             //setup
             double minuend = -1;
             double subtrahend = 1;
-            Subtraction subtraction = new(minuend, subtrahend);
 
             //act
-            double result = subtraction.Calculate();
+            Subtraction subtraction = new(minuend, subtrahend);
 
             //asserts
-            result.Should().Be(0);
+            subtraction.Value.Should().Be(0);
         }
 
 

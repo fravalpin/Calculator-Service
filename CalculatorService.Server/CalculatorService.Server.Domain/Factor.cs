@@ -8,27 +8,21 @@ namespace CalculatorService.Server.Domain
 {
     public class Factor
     {
-        private readonly double[] _factors;
 
         public Factor(double[] factors)
         {
-            _factors = factors;
-        }
-
-        public double Calculate()
-        {
-            if (_factors == null)
+            if (factors == null)
                 throw new ArgumentNullException("The request should include at least two numeric operands to add");
-            if (_factors.Length < 2)
+            if (factors.Length < 2)
                 throw new ArgumentException("The request should include at least two numeric operands to add");
 
-            double result = _factors[0];
-            for (int i = 1; i < _factors.Length; i++)
+            Value = factors[0];
+            for (int i = 1; i < factors.Length; i++)
             {
-                result *= _factors[i];
+                Value *= factors[i];
             }
-
-            return result;
         }
+
+        public double Value { get; }
     }
 }

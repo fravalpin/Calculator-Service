@@ -11,10 +11,9 @@ namespace CalculatorService.Server.Domain.UnitTests
         {
             //setup
             double[] operands = null;
-            Addition addition = new(operands);
 
             //act
-            Action act = () => addition.Calculate();
+            Action act = () => new Addition(operands);
 
             //asserts
             act.Should().Throw<ArgumentNullException>();
@@ -25,10 +24,9 @@ namespace CalculatorService.Server.Domain.UnitTests
         {
             //setup
             double[] operands = new double[] { 1 };
-            Addition addition = new(operands);
 
             //act
-            Action act = () => addition.Calculate();
+            Action act = () => new Addition(operands);
 
             //asserts
             act.Should().Throw<ArgumentException>();
@@ -39,13 +37,12 @@ namespace CalculatorService.Server.Domain.UnitTests
         {
             //setup
             double[] operands = new double[] { 1, 1 };
-            Addition addition = new(operands);
 
             //act
-            double result = addition.Calculate();
+            Addition addition = new(operands);
 
             //asserts
-            result.Should().Be(2);
+            addition.Value.Should().Be(2);
         }
 
         [Fact]
@@ -53,13 +50,12 @@ namespace CalculatorService.Server.Domain.UnitTests
         {
             //setup
             double[] operands = new double[] { 1.5, 1.5 };
-            Addition addition = new(operands);
 
             //act
-            double result = addition.Calculate();
+            Addition addition = new(operands);
 
             //asserts
-            result.Should().Be(3);
+            addition.Value.Should().Be(3);
         }
 
         [Fact]
@@ -67,13 +63,12 @@ namespace CalculatorService.Server.Domain.UnitTests
         {
             //setup
             double[] operands = new double[] { -1, -1 };
-            Addition addition = new(operands);
 
             //act
-            double result = addition.Calculate();
+            Addition addition = new(operands);
 
             //asserts
-            result.Should().Be(-2);
+            addition.Value.Should().Be(-2);
         }
 
     }
