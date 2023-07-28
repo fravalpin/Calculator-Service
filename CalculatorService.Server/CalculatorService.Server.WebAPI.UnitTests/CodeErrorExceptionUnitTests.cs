@@ -1,5 +1,4 @@
-﻿using CalculatorService.Server.WebAPI.Middleware;
-using FluentAssertions;
+﻿using FluentAssertions;
 using FluentValidation;
 using Xunit;
 
@@ -16,7 +15,7 @@ namespace CalculatorService.Server.WebAPI.UnitTests
             ValidationException validationException = new(message);
 
             //act
-            CodeErrorException codeErrorException = new(validationException);
+            ResponseGeneralException codeErrorException = new(validationException);
 
             //asserts
             codeErrorException.ErrorStatus.Should().Be(400);
@@ -31,7 +30,7 @@ namespace CalculatorService.Server.WebAPI.UnitTests
             Exception exception = new();
 
             //act
-            CodeErrorException codeErrorException = new(exception);
+            ResponseGeneralException codeErrorException = new(exception);
 
             //asserts
             codeErrorException.ErrorStatus.Should().Be(500);
@@ -47,7 +46,7 @@ namespace CalculatorService.Server.WebAPI.UnitTests
             NullReferenceException exception = new();
 
             //act
-            CodeErrorException codeErrorException = new(exception);
+            ResponseGeneralException codeErrorException = new(exception);
 
             //asserts
             codeErrorException.ErrorStatus.Should().Be(500);

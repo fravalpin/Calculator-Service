@@ -4,17 +4,18 @@ using MediatR;
 
 namespace CalculatorService.Server.Application.UsesCases
 {
-    public record AdditionRequest(double[]? Addends) : IRequest<double>;
-    public class AdditionRequestHandler : IRequestHandler<AdditionRequest, double>
+    public record AdditionRequest(double[]? Addends) : IRequest<AdditionResponse>;
+    public record AdditionResponse(double Sum);
+    public class AdditionRequestHandler : IRequestHandler<AdditionRequest, AdditionResponse>
     {
         public AdditionRequestHandler()
         {
         }
 
-        public Task<double> Handle(AdditionRequest request, CancellationToken cancellationToken)
+        public Task<AdditionResponse> Handle(AdditionRequest request, CancellationToken cancellationToken)
         {
             Addition addition = new(request.Addends!);
-            return Task.FromResult(addition.Calculate());
+            return Task.FromResult(new AdditionResponse(addition.Calculate()));
         }
     }
 

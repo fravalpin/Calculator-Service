@@ -17,11 +17,19 @@ namespace CalculatorService.Server.WebAPI.Controllers
             _mediatior = mediatior;
         }
 
-        [HttpPost("Add")]
-        [ProducesResponseType(typeof(double), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<double>> Add([FromBody] AdditionRequest additionRequest)
+        [HttpPost("add")]
+        [ProducesResponseType(typeof(AdditionResponse), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<AdditionResponse>> Add([FromBody] AdditionRequest additionRequest)
         {
-            double result = await _mediatior.Send(additionRequest);
+            AdditionResponse result = await _mediatior.Send(additionRequest);
+            return Ok(result);
+        }
+
+        [HttpPost("sub")]
+        [ProducesResponseType(typeof(SubtractionResponse), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<SubtractionResponse>> Sub([FromBody] SubtractionRequest substractionRequest)
+        {
+            SubtractionResponse result = await _mediatior.Send(substractionRequest);
             return Ok(result);
         }
     }
