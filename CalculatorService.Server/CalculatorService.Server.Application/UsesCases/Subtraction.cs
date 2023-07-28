@@ -23,14 +23,14 @@ namespace CalculatorService.Server.Application.UsesCases
 
     public class SubtractionValidator : AbstractValidator<SubtractionRequest>
     {
+        private const string ErrorMessage = "The request should include at least two numeric operands to add";
+
         public SubtractionValidator()
         {
             RuleFor(p => p.Minuend)
-                .NotEmpty()
-                .WithMessage("The request should include at least two numeric operands to add");
+                .NotEmpty() .WithMessage(ErrorMessage);
             RuleFor(p => p.Subtrahend)
-                .NotEmpty()
-                .WithMessage("The request should include at least two numeric operands to add");
+                .NotEmpty() .WithMessage(ErrorMessage);
         }
     }
 

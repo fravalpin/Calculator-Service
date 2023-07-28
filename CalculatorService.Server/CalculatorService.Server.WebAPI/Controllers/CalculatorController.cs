@@ -47,5 +47,13 @@ namespace CalculatorService.Server.WebAPI.Controllers
             DivisionResponse result = await _mediatior.Send(divisionRequest);
             return Ok(result);
         }
+
+        [HttpPost("sqrt")]
+        [ProducesResponseType(typeof(SquareRootResponse), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<SquareRootResponse>> Sqrt([FromBody] SquareRootRequest squareRootRequest)
+        {
+            SquareRootResponse result = await _mediatior.Send(squareRootRequest);
+            return Ok(result);
+        }
     }
 }

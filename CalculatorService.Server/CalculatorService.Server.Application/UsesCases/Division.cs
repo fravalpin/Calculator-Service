@@ -23,17 +23,15 @@ namespace CalculatorService.Server.Application.UsesCases
 
     public class DivisionValidator : AbstractValidator<DivisionRequest>
     {
+        private const string ErrorMessage = "The request should include at least two numeric operands to add";
+
         public DivisionValidator()
         {
             RuleFor(p => p.Dividend)
-                .NotEmpty()
-                .WithMessage("The request should include at least two numeric operands to add");
+                .NotEmpty() .WithMessage(ErrorMessage);
             RuleFor(p => p.Divisor)
-                .NotEmpty()
-                .WithMessage("The request should include at least two numeric operands to add");
-            RuleFor(p => p.Divisor)
-                .NotEqual(0)
-                .WithMessage("Divisor can't be zero");
+                .NotEmpty().WithMessage(ErrorMessage)
+                .NotEqual(0) .WithMessage("Divisor can't be zero");
         }
     }
 

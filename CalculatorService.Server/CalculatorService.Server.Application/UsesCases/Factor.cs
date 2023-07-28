@@ -14,6 +14,8 @@ namespace CalculatorService.Server.Application.UsesCases
 
         public Task<FactorResponse> Handle(FactorRequest request, CancellationToken cancellationToken)
         {
+            if (request.Factors == null) throw new ArgumentNullException();
+
             Factor addition = new(request.Factors!);
             return Task.FromResult(new FactorResponse(addition.Calculate()));
         }
