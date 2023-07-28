@@ -32,5 +32,13 @@ namespace CalculatorService.Server.WebAPI.Controllers
             SubtractionResponse result = await _mediatior.Send(substractionRequest);
             return Ok(result);
         }
+
+        [HttpPost("mult")]
+        [ProducesResponseType(typeof(SubtractionResponse), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<SubtractionResponse>> Mult([FromBody] FactorRequest factorRequest)
+        {
+            FactorResponse result = await _mediatior.Send(factorRequest);
+            return Ok(result);
+        }
     }
 }
