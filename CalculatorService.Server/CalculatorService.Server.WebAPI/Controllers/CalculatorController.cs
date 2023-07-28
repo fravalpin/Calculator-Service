@@ -1,6 +1,5 @@
 ﻿using CalculatorService.Server.Application.UsesCases;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
@@ -34,10 +33,18 @@ namespace CalculatorService.Server.WebAPI.Controllers
         }
 
         [HttpPost("mult")]
-        [ProducesResponseType(typeof(SubtractionResponse), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<SubtractionResponse>> Mult([FromBody] FactorRequest factorRequest)
+        [ProducesResponseType(typeof(FactorResponse), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<FactorResponse>> Mult([FromBody] FactorRequest factorRequest)
         {
             FactorResponse result = await _mediatior.Send(factorRequest);
+            return Ok(result);
+        }
+
+        [HttpPost("div")]
+        [ProducesResponseType(typeof(DivisionResponse), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<DivisionResponse>> Div([FromBody] DivisionRequest divisionRequest)
+        {
+            DivisionResponse result = await _mediatior.Send(divisionRequest);
             return Ok(result);
         }
     }
