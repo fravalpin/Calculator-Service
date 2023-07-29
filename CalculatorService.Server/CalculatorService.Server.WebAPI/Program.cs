@@ -1,5 +1,6 @@
 using CalculatorService.Server.WebAPI;
 using CalculatorService.Server.Application;
+using CalculatorService.Server.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddApplicationsServices();
+builder.Services.AddInfrastructureServices(builder.Logging, builder.Host);
 builder.Services.AddAPIServices();
 
 builder.Services.AddSwaggerGen();

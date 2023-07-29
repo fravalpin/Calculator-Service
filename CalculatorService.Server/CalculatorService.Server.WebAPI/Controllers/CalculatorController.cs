@@ -18,9 +18,10 @@ namespace CalculatorService.Server.WebAPI.Controllers
 
         [HttpPost("add")]
         [ProducesResponseType(typeof(AdditionResponse), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<AdditionResponse>> Add([FromBody] AdditionRequest additionRequest)
+        public async Task<ActionResult<AdditionResponse>> Add([FromBody] AdditionBodyRequest additionRequest, [FromHeader/*(Name = "X‐Evi‐Tracking‐Id")*/] string? XEviTrackingId)
         {
-            AdditionResponse result = await _mediatior.Send(additionRequest);
+            AdditionRequest request = new(additionRequest.Addends, XEviTrackingId);
+            AdditionResponse result = await _mediatior.Send(request);
             return Ok(result);
         }
 

@@ -10,4 +10,15 @@
     <ProjectReference Include="..\CalculatorService.Server.Application\CalculatorService.Server.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="NLog.Web.AspNetCore" Version="5.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="nlog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+
 </Project>

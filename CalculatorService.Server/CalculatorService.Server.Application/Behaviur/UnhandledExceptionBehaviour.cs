@@ -16,12 +16,11 @@ namespace CalculatorService.Server.Application.Behaviour
         {
             try
             {
-                _log.LogInformation($"{request}");
                 return await next();
             }
             catch (Exception ex)
             {
-                _log.LogError(ex, $"Sucedió una excepción en la petición {request}");
+                _log.LogError(ex, $"Exception for request {request}");
                 throw;
             }
         }

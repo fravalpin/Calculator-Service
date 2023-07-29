@@ -1,6 +1,7 @@
 ﻿using CalculatorService.Server.Domain;
 using FluentValidation;
 using MediatR;
+using Microsoft.Extensions.Logging;
 
 namespace CalculatorService.Server.Application.UsesCases
 {
@@ -8,15 +9,19 @@ namespace CalculatorService.Server.Application.UsesCases
     public record SquareRootResponse(double Square);
     public class SquareRootRequestHandler : IRequestHandler<SquareRootRequest, SquareRootResponse>
     {
-        public SquareRootRequestHandler()
+        private readonly ILogger<SquareRootRequestHandler> _logger;
+        public SquareRootRequestHandler(ILogger<SquareRootRequestHandler> logger)
         {
+            _logger = logger;
         }
 
         public Task<SquareRootResponse> Handle(SquareRootRequest request, CancellationToken cancellationToken)
         {
             if (request.Number == null) throw new ArgumentNullException();
 
+            _logger.LogDebug($"Calculating sqrt({request.Number})");
             SquareRoot squareRoot = new(request.Number.Value);
+            _logger.LogDebug($"Square is {squareRoot.Value}");
             return Task.FromResult(new SquareRootResponse(squareRoot.Value));
         }
     }

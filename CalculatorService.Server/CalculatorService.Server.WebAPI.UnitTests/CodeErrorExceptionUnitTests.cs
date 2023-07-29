@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using CalculatorService.Server.WebAPI.Middleware.ResponseException.ResponseException;
+using FluentAssertions;
 using FluentValidation;
 using Xunit;
 
@@ -15,38 +16,19 @@ namespace CalculatorService.Server.WebAPI.UnitTests
             ValidationException validationException = new(message);
 
             //act
-            ResponseGeneralException codeErrorException = new(validationException);
+            ResponseValidationException codeErrorException = new(validationException);
 
             //asserts
             codeErrorException.ErrorStatus.Should().Be(400);
             codeErrorException.ErrorCode.Should().Be("InternalError");
-            codeErrorException.ErrorMessage.Should().Be("Unable to process request:" + message);
+            codeErrorException.ErrorMessage.Should().Be("Unable to process request: " + message);
         }
 
         [Fact]
         public void GenericException()
         {
-            //setup
-            Exception exception = new();
-
             //act
-            ResponseGeneralException codeErrorException = new(exception);
-
-            //asserts
-            codeErrorException.ErrorStatus.Should().Be(500);
-            codeErrorException.ErrorCode.Should().Be("InternalError");
-            codeErrorException.ErrorMessage.Should().Be("An unexpected error condition was triggered which made impossible to fulfill the request. Please try again or contact support.");
-        }
-
-
-        [Fact]
-        public void NullException()
-        {
-            //setup
-            NullReferenceException exception = new();
-
-            //act
-            ResponseGeneralException codeErrorException = new(exception);
+            ResponseGeneralException codeErrorException = new();
 
             //asserts
             codeErrorException.ErrorStatus.Should().Be(500);

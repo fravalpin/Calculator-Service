@@ -2,6 +2,8 @@
 using CalculatorService.Server.Application.UsesCases;
 using FluentAssertions;
 using FluentValidation;
+using Microsoft.Extensions.Logging;
+using Moq;
 using Xunit;
 
 namespace CalculatorService.Server.Application.UnitTests
@@ -52,10 +54,12 @@ namespace CalculatorService.Server.Application.UnitTests
         public async Task AdditionGetResult()
         {
             AdditionRequest additionRequest = new(new double[] { 1, 1 });
-            AdditionRequestHandler requestHandler = new();
-            double result = await requestHandler.Handle(additionRequest, CancellationToken.None);
+            Mock<ILogger<AdditionRequestHandler>> logger = new();
+            AdditionRequestHandler requestHandler = new(logger.Object);
+            AdditionResponse result = await requestHandler.Handle(additionRequest, CancellationToken.None);
 
-            result.Should().Be(2);
+            result.Should().NotBeNull();
+            result.Sum.Should().Be(2);
         }
 
     }

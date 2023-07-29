@@ -1,6 +1,7 @@
 ﻿using CalculatorService.Server.Domain;
 using FluentValidation;
 using MediatR;
+using Microsoft.Extensions.Logging;
 
 namespace CalculatorService.Server.Application.UsesCases
 {
@@ -8,15 +9,19 @@ namespace CalculatorService.Server.Application.UsesCases
     public record DivisionResponse(double Quotient, double Remainder);
     public class DivisionRequestHandler : IRequestHandler<DivisionRequest, DivisionResponse>
     {
-        public DivisionRequestHandler()
+        private readonly ILogger<DivisionRequestHandler> _logger;
+        public DivisionRequestHandler(ILogger<DivisionRequestHandler> logger)
         {
+            _logger = logger;
         }
 
         public Task<DivisionResponse> Handle(DivisionRequest request, CancellationToken cancellationToken)
         {
             if (request.Dividend == null || request.Divisor == null) throw new ArgumentNullException();
 
+            _logger.LogDebug($"Calculating {request.Dividend} / {request.Divisor}");
             Division division = new(request.Dividend.Value, request.Divisor.Value);
+            _logger.LogDebug($"Quotient is {division.Quotient} and Remainder is {division.Remainder}");
             return Task.FromResult(new DivisionResponse(division.Quotient, division.Remainder));
         }
     }
