@@ -1,0 +1,54 @@
+2023-07-29 20:54:45.2519 Info Message Template Auto Format enabled
+2023-07-29 20:54:45.2761 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-29 20:54:45.4348 Info Registered target FileTarget(Name=allfile)
+2023-07-29 20:54:45.4348 Info Registered target FileTarget(Name=ownFile-web)
+2023-07-29 20:54:45.4348 Info Registered target ConsoleTarget(Name=lifetimeConsole)
+2023-07-29 20:54:45.4665 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=172, FilePath=C:\Users\fvall\source\repos\Calculator-Service\CalculatorService.Server\CalculatorService.Server.WebAPI\bin\Debug\net6.0\NLog.config
+2023-07-29 20:54:45.4839 Info Configuration initialized.
+2023-07-29 20:54:45.4968 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.1.0.1480. Product version: 5.1.0+5e6708d4d288e03b3ddf321838ec14907016f1b8. GlobalAssemblyCache: False
+2023-07-29 20:54:45.4968 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=172, FilePath=C:\Users\fvall\source\repos\Calculator-Service\CalculatorService.Server\CalculatorService.Server.WebAPI\bin\Debug\net6.0\NLog.config
+2023-07-29 21:12:35.9388 Info Message Template Auto Format enabled
+2023-07-29 21:12:35.9518 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-29 21:12:36.1062 Info Registered target FileTarget(Name=allfile)
+2023-07-29 21:12:36.1062 Info Registered target FileTarget(Name=ownFile-web)
+2023-07-29 21:12:36.1062 Info Registered target ConsoleTarget(Name=lifetimeConsole)
+2023-07-29 21:12:36.1641 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=172, FilePath=C:\Users\fvall\source\repos\Calculator-Service\CalculatorService.Server\CalculatorService.Server.WebAPI\bin\Debug\net6.0\NLog.config
+2023-07-29 21:12:36.1951 Info Configuration initialized.
+2023-07-29 21:12:36.2096 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.1.0.1480. Product version: 5.1.0+5e6708d4d288e03b3ddf321838ec14907016f1b8. GlobalAssemblyCache: False
+2023-07-29 21:12:36.2096 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=172, FilePath=C:\Users\fvall\source\repos\Calculator-Service\CalculatorService.Server\CalculatorService.Server.WebAPI\bin\Debug\net6.0\NLog.config
+2023-07-29 21:17:14.4675 Info Message Template Auto Format enabled
+2023-07-29 21:17:14.4800 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-29 21:17:14.6001 Info Registered target FileTarget(Name=allfile)
+2023-07-29 21:17:14.6001 Info Registered target FileTarget(Name=ownFile-web)
+2023-07-29 21:17:14.6001 Info Registered target ConsoleTarget(Name=lifetimeConsole)
+2023-07-29 21:17:14.6303 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=172, FilePath=C:\Users\fvall\source\repos\Calculator-Service\CalculatorService.Server\CalculatorService.Server.WebAPI\bin\Debug\net6.0\NLog.config
+2023-07-29 21:17:14.6477 Info Configuration initialized.
+2023-07-29 21:17:14.6477 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.1.0.1480. Product version: 5.1.0+5e6708d4d288e03b3ddf321838ec14907016f1b8. GlobalAssemblyCache: False
+2023-07-29 21:17:14.6477 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=172, FilePath=C:\Users\fvall\source\repos\Calculator-Service\CalculatorService.Server\CalculatorService.Server.WebAPI\bin\Debug\net6.0\NLog.config
+2023-07-29 21:18:56.6433 Info Message Template Auto Format enabled
+2023-07-29 21:18:56.6573 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-29 21:18:56.8088 Info Registered target FileTarget(Name=allfile)
+2023-07-29 21:18:56.8088 Info Registered target FileTarget(Name=ownFile-web)
+2023-07-29 21:18:56.8088 Info Registered target ConsoleTarget(Name=lifetimeConsole)
+2023-07-29 21:18:56.8534 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=172, FilePath=C:\Users\fvall\source\repos\Calculator-Service\CalculatorService.Server\CalculatorService.Server.WebAPI\bin\Debug\net6.0\NLog.config
+2023-07-29 21:18:56.8692 Info Configuration initialized.
+2023-07-29 21:18:56.8692 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.1.0.1480. Product version: 5.1.0+5e6708d4d288e03b3ddf321838ec14907016f1b8. GlobalAssemblyCache: False
+2023-07-29 21:18:56.8692 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=172, FilePath=C:\Users\fvall\source\repos\Calculator-Service\CalculatorService.Server\CalculatorService.Server.WebAPI\bin\Debug\net6.0\NLog.config
+2023-07-29 21:51:08.4752 Info Message Template Auto Format enabled
+2023-07-29 21:51:08.5016 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-29 21:51:09.1817 Info Registered target FileTarget(Name=allfile)
+2023-07-29 21:51:09.2152 Info Registered target FileTarget(Name=ownFile-web)
+2023-07-29 21:51:09.2359 Info Registered target ConsoleTarget(Name=lifetimeConsole)
+2023-07-29 21:51:09.3112 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=172, FilePath=C:\Users\fvall\source\repos\Calculator-Service\CalculatorService.Server\CalculatorService.Server.WebAPI\bin\Debug\net6.0\NLog.config
+2023-07-29 21:51:09.3468 Info Configuration initialized.
+2023-07-29 21:51:09.3812 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.1.0.1480. Product version: 5.1.0+5e6708d4d288e03b3ddf321838ec14907016f1b8. GlobalAssemblyCache: False
+2023-07-29 21:51:09.3812 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=172, FilePath=C:\Users\fvall\source\repos\Calculator-Service\CalculatorService.Server\CalculatorService.Server.WebAPI\bin\Debug\net6.0\NLog.config
+2023-07-29 21:51:56.1901 Info Message Template Auto Format enabled
+2023-07-29 21:51:56.2047 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-29 21:51:56.3522 Info Registered target FileTarget(Name=allfile)
+2023-07-29 21:51:56.3522 Info Registered target FileTarget(Name=ownFile-web)
+2023-07-29 21:51:56.3522 Info Registered target ConsoleTarget(Name=lifetimeConsole)
+2023-07-29 21:51:56.3893 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=172, FilePath=C:\Users\fvall\source\repos\Calculator-Service\CalculatorService.Server\CalculatorService.Server.WebAPI\bin\Debug\net6.0\NLog.config
+2023-07-29 21:51:56.4056 Info Configuration initialized.
+2023-07-29 21:51:56.4163 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.1.0.1480. Product version: 5.1.0+5e6708d4d288e03b3ddf321838ec14907016f1b8. GlobalAssemblyCache: False
+2023-07-29 21:51:56.4163 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=172, FilePath=C:\Users\fvall\source\repos\Calculator-Service\CalculatorService.Server\CalculatorService.Server.WebAPI\bin\Debug\net6.0\NLog.config
