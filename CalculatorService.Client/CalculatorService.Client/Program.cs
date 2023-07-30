@@ -28,7 +28,7 @@ static void SetHttpClientHeaders(HttpClient client, string? trackingID)
 static ICaller? GetCall(string[] cmdArgs)
 {
     StringContent? content = null;
-    string url = "https://localhost:7123/";
+    string url = "https://localhost:5000/";
     ICaller? caller = null;
     switch (cmdArgs[1])
     {
