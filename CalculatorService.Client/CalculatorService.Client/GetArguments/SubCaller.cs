@@ -13,7 +13,7 @@ namespace CalculatorService.Client.GetArguments
             string minuend = cmdArgs[2];
             string subtrahend = cmdArgs[3];
             Content = new("{\"minuend\" : " + minuend + ", \"subtrahend\": " + subtrahend + "}", Encoding.UTF8, "application/json");
-            Url = url + "sub";
+            Url = url + "Calculator/sub";
 
             if (cmdArgs.Length == 5)
                 TrackingID = cmdArgs[4];

@@ -27,33 +27,37 @@ namespace CalculatorService.Server.WebAPI.Controllers
 
         [HttpPost("sub")]
         [ProducesResponseType(typeof(SubtractionResponse), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<SubtractionResponse>> Sub([FromBody] SubtractionRequest substractionRequest)
+        public async Task<ActionResult<SubtractionResponse>> Sub([FromBody] SubtractionBodyRequest substractionRequest, [FromHeader/*(Name = "X‐Evi‐Tracking‐Id")*/] string? XEviTrackingId)
         {
-            SubtractionResponse result = await _mediatior.Send(substractionRequest);
+            SubtractionRequest request = new(substractionRequest.Minuend, substractionRequest.Subtrahend, XEviTrackingId);
+            SubtractionResponse result = await _mediatior.Send(request);
             return Ok(result);
         }
 
         [HttpPost("mult")]
         [ProducesResponseType(typeof(FactorResponse), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<FactorResponse>> Mult([FromBody] FactorRequest factorRequest)
+        public async Task<ActionResult<FactorResponse>> Mult([FromBody] FactorBodyRequest factorRequest, [FromHeader/*(Name = "X‐Evi‐Tracking‐Id")*/] string? XEviTrackingId)
         {
-            FactorResponse result = await _mediatior.Send(factorRequest);
+            FactorRequest request = new(factorRequest.Factors, XEviTrackingId);
+            FactorResponse result = await _mediatior.Send(request);
             return Ok(result);
         }
 
         [HttpPost("div")]
         [ProducesResponseType(typeof(DivisionResponse), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<DivisionResponse>> Div([FromBody] DivisionRequest divisionRequest)
+        public async Task<ActionResult<DivisionResponse>> Div([FromBody] DivisionBodyRequest divisionRequest, [FromHeader/*(Name = "X‐Evi‐Tracking‐Id")*/] string? XEviTrackingId)
         {
-            DivisionResponse result = await _mediatior.Send(divisionRequest);
+            DivisionRequest request = new(divisionRequest.Dividend, divisionRequest.Divisor, XEviTrackingId);
+            DivisionResponse result = await _mediatior.Send(request);
             return Ok(result);
         }
 
         [HttpPost("sqrt")]
         [ProducesResponseType(typeof(SquareRootResponse), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<SquareRootResponse>> Sqrt([FromBody] SquareRootRequest squareRootRequest)
+        public async Task<ActionResult<SquareRootResponse>> Sqrt([FromBody] SquareRootBodyRequest squareRootRequest, [FromHeader/*(Name = "X‐Evi‐Tracking‐Id")*/] string? XEviTrackingId)
         {
-            SquareRootResponse result = await _mediatior.Send(squareRootRequest);
+            SquareRootRequest request = new(squareRootRequest.Number, XEviTrackingId);
+            SquareRootResponse result = await _mediatior.Send(request);
             return Ok(result);
         }
     }

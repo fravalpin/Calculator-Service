@@ -11,7 +11,7 @@ namespace CalculatorService.Client.GetArguments
 
             string number = cmdArgs[2];
             Content = new("{\"number\" : " + number + "}", Encoding.UTF8, "application/json");
-            Url = url + "sqrt";
+            Url = url + "Calculator/sqrt";
 
             if (cmdArgs.Length == 5)
                 TrackingID = cmdArgs[4];

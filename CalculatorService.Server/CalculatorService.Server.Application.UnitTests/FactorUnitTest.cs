@@ -1,5 +1,7 @@
 ﻿
+using CalculatorService.Server.Application.Abstractions;
 using CalculatorService.Server.Application.UsesCases;
+using CalculatorService.Server.Domain.Calculations;
 using FluentAssertions;
 using FluentValidation;
 using Microsoft.Extensions.Logging;
@@ -55,12 +57,39 @@ namespace CalculatorService.Server.Application.UnitTests
         {
             FactorRequest factorRequest = new(new double[] { 2, 8 });
             Mock<ILogger<FactorRequestHandler>> logger = new();
-            FactorRequestHandler requestHandler = new(logger.Object);
+            Mock<IJournalService> journal = new();
+            FactorRequestHandler requestHandler = new(logger.Object, journal.Object);
             FactorResponse result = await requestHandler.Handle(factorRequest, CancellationToken.None);
 
             result.Should().NotBeNull();
             result.Product.Should().Be(16);
         }
+
+        [Fact]
+        public async Task FactorWithXEviTrackingId()
+        {
+            string trackingID = Guid.NewGuid().ToString();
+            FactorRequest factorRequest = new(new double[] { 1, 1 }, trackingID);
+            Mock<ILogger<FactorRequestHandler>> logger = new();
+            Mock<IJournalService> journal = new();
+            FactorRequestHandler requestHandler = new(logger.Object, journal.Object);
+            await requestHandler.Handle(factorRequest, CancellationToken.None);
+
+            journal.Verify(x => x.Add(It.IsAny<ICalculation>(), trackingID), Times.Once());
+        }
+
+        [Fact]
+        public async Task FactorWithotXEviTrackingId()
+        {
+            FactorRequest factorRequest = new(new double[] { 1, 1 });
+            Mock<ILogger<FactorRequestHandler>> logger = new();
+            Mock<IJournalService> journal = new();
+            FactorRequestHandler requestHandler = new(logger.Object, journal.Object);
+            await requestHandler.Handle(factorRequest, CancellationToken.None);
+
+            journal.Verify(x => x.Add(It.IsAny<ICalculation>(), It.IsAny<string>()), Times.Never());
+        }
+
 
     }
 }

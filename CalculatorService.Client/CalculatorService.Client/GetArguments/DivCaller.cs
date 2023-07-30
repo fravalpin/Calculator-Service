@@ -13,7 +13,7 @@ namespace CalculatorService.Client.GetArguments
             string dividend = cmdArgs[2];
             string divisor = cmdArgs[3];
             Content = new("{\"dividend\" : " + dividend + ", \"divisor\": " + divisor + "}", Encoding.UTF8, "application/json");
-            Url = url + "div";
+            Url = url + "Calculator/div";
 
             if (cmdArgs.Length == 5)
                 TrackingID = cmdArgs[4];

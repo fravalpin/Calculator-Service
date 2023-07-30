@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CalculatorService.Server.Domain
+namespace CalculatorService.Server.Domain.Calculations
 {
-    public class Factor
+    public class Factor : ICalculation
     {
+        private readonly double[] _factors;
 
         public Factor(double[] factors)
         {
@@ -21,8 +22,16 @@ namespace CalculatorService.Server.Domain
             {
                 Value *= factors[i];
             }
-        }
 
+            _factors = factors;
+        }
         public double Value { get; }
+
+        public string Operation => "Mul";
+
+        public override string ToString()
+        {
+            return $"{string.Join(" x ", _factors)} = {Value}";
+        }
     }
 }

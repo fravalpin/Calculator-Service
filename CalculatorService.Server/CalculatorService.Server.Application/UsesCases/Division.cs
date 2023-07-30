@@ -1,27 +1,34 @@
-﻿using CalculatorService.Server.Domain;
+﻿using CalculatorService.Server.Application.Abstractions;
+using CalculatorService.Server.Domain.Calculations;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
 namespace CalculatorService.Server.Application.UsesCases
 {
-    public record DivisionRequest(double? Dividend, double? Divisor) : IRequest<DivisionResponse>;
+    public record DivisionBodyRequest(double? Dividend, double? Divisor);
+    public record DivisionRequest(double? Dividend, double? Divisor, string? XEviTrackingID = null) : IRequest<DivisionResponse>;
     public record DivisionResponse(double Quotient, double Remainder);
     public class DivisionRequestHandler : IRequestHandler<DivisionRequest, DivisionResponse>
     {
         private readonly ILogger<DivisionRequestHandler> _logger;
-        public DivisionRequestHandler(ILogger<DivisionRequestHandler> logger)
+        private readonly IJournalService _journalService;
+
+        public DivisionRequestHandler(ILogger<DivisionRequestHandler> logger, IJournalService journalService)
         {
             _logger = logger;
+            _journalService = journalService;
         }
 
         public Task<DivisionResponse> Handle(DivisionRequest request, CancellationToken cancellationToken)
         {
             if (request.Dividend == null || request.Divisor == null) throw new ArgumentNullException();
 
-            _logger.LogDebug($"Calculating {request.Dividend} / {request.Divisor}");
             Division division = new(request.Dividend.Value, request.Divisor.Value);
-            _logger.LogDebug($"Quotient is {division.Quotient} and Remainder is {division.Remainder}");
+
+            _logger.LogDebug($"Calculated {division}");
+            if (!string.IsNullOrEmpty(request.XEviTrackingID))
+                _journalService.Add(division, request.XEviTrackingID);
             return Task.FromResult(new DivisionResponse(division.Quotient, division.Remainder));
         }
     }

@@ -12,7 +12,7 @@ namespace CalculatorService.Client.GetArguments
 
             string factors = cmdArgs[2];
             Content = new("{\"Factors\" : " + factors + "}", Encoding.UTF8, "application/json");
-            Url = url + "mult";
+            Url = url + "Calculator/mult";
 
             if (cmdArgs.Length == 4)
                 TrackingID = cmdArgs[3];

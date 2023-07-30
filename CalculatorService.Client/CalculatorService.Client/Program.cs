@@ -7,7 +7,7 @@ if (cmdArgs.Length <= 1 || (cmdArgs[1] == "-h" || cmdArgs[1] == "--help"))
 
 ICaller? caller = GetCall(cmdArgs);
 using HttpClient client = new();
-SetHttpClientHeaders(client, caller.TrackingID);
+SetHttpClientHeaders(client, caller!.TrackingID);
 await ProccesRequest(client, caller.Content, caller.Url);
 
 static async Task ProccesRequest(HttpClient client, StringContent content, string url)
@@ -28,7 +28,7 @@ static void SetHttpClientHeaders(HttpClient client, string? trackingID)
 static ICaller? GetCall(string[] cmdArgs)
 {
     StringContent? content = null;
-    string url = "https://localhost:7123/Calculator/";
+    string url = "https://localhost:7123/";
     ICaller? caller = null;
     switch (cmdArgs[1])
     {
@@ -51,6 +51,10 @@ static ICaller? GetCall(string[] cmdArgs)
         case "sqrt":
             try { caller = new SqrtCaller(cmdArgs, url); }
             catch (Exception) { ShowHelpSqrtMessage(); }
+            break;
+        case "journal":
+            try { caller = new JournalCaller(cmdArgs, url); }
+            catch (Exception) { ShowHelpJournalMessage(); }
             break;
         default:
             ShowHelpMessage();
@@ -97,6 +101,13 @@ static void ShowHelpSqrtMessage()
 {
     Console.WriteLine("Usage CalculatorService-Client.exe sqrt number [User-id] \n" +
            "number: number \n");
+
+    Environment.Exit(1);
+}
+static void ShowHelpJournalMessage()
+{
+    Console.WriteLine("Usage CalculatorService-Client.exe journal id [User-id] \n" +
+           "id: string \n");
 
     Environment.Exit(1);
 }

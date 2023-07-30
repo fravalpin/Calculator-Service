@@ -1,4 +1,5 @@
-﻿using CalculatorService.Server.Domain;
+﻿using CalculatorService.Server.Application.Abstractions;
+using CalculatorService.Server.Domain.Calculations;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.Logging;
@@ -6,24 +7,29 @@ using Microsoft.Extensions.Logging;
 namespace CalculatorService.Server.Application.UsesCases
 {
     public record AdditionBodyRequest(double[]? Addends);
-    public record AdditionRequest(double[]? Addends, string? XEviTrackingId) : IRequest<AdditionResponse>;
+    public record AdditionRequest(double[]? Addends, string? XEviTrackingID = null) : IRequest<AdditionResponse>;
     public record AdditionResponse(double Sum);
     public class AdditionRequestHandler : IRequestHandler<AdditionRequest, AdditionResponse>
     {
         private readonly ILogger<AdditionRequestHandler> _logger;
+        private readonly IJournalService _journalService;
 
-        public AdditionRequestHandler(ILogger<AdditionRequestHandler> logger)
+        public AdditionRequestHandler(ILogger<AdditionRequestHandler> logger, IJournalService journalService)
         {
             _logger = logger;
+            _journalService = journalService;
         }
 
         public Task<AdditionResponse> Handle(AdditionRequest request, CancellationToken cancellationToken)
         {
             if (request?.Addends == null) throw new ArgumentNullException();
 
-            _logger.LogDebug($"Calculating {string.Join(" + ", request.Addends)}");
             Addition addition = new(request.Addends!);
-            _logger.LogDebug($"Sum is {addition.Value}");
+            _logger.LogDebug($"Calculated {addition}");
+
+            if (!string.IsNullOrEmpty(request.XEviTrackingID))
+                _journalService.Add(addition, request.XEviTrackingID);
+
             return Task.FromResult(new AdditionResponse(addition.Value));
         }
     }

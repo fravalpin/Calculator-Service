@@ -1,6 +1,6 @@
-﻿namespace CalculatorService.Server.Domain
+﻿namespace CalculatorService.Server.Domain.Calculations
 {
-    public class SquareRoot
+    public class SquareRoot : ICalculation
     {
         public SquareRoot(double number)
         {
@@ -9,5 +9,7 @@
             Value = Math.Sqrt(number);
         }
         public double Value { get; }
+
+        public string Operation => "Sqrt";
     }
 }

@@ -12,7 +12,7 @@ namespace CalculatorService.Client.GetArguments
 
             string addends = cmdArgs[2];
             Content = new("{\"Addends\" : " + addends + "}", Encoding.UTF8, "application/json");
-            Url = url + "add";
+            Url = url + "Calculator/add";
 
             if (cmdArgs.Length == 4)
                 TrackingID = cmdArgs[3];

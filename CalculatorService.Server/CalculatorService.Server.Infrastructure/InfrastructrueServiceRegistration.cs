@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using CalculatorService.Server.Application.Abstractions;
+using CalculatorService.Server.Infrastructure.Journal;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NLog.Web;
@@ -11,6 +13,8 @@ namespace CalculatorService.Server.Infrastructure
         {
             logging.ClearProviders();
             host.UseNLog();
+
+            services.AddSingleton<IJournalService, JournalService>();
 
             return services;
         }

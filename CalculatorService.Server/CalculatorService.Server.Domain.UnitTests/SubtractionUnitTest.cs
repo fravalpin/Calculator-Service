@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using CalculatorService.Server.Domain.Calculations;
+using FluentAssertions;
 using Xunit;
 
 namespace CalculatorService.Server.Domain.UnitTests

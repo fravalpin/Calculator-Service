@@ -1,27 +1,33 @@
-﻿using CalculatorService.Server.Domain;
+﻿using CalculatorService.Server.Application.Abstractions;
+using CalculatorService.Server.Domain.Calculations;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
 namespace CalculatorService.Server.Application.UsesCases
 {
-    public record FactorRequest(double[]? Factors) : IRequest<FactorResponse>;
+    public record FactorBodyRequest(double[]? Factors);
+    public record FactorRequest(double[]? Factors, string? XEviTrackingID = null) : IRequest<FactorResponse>;
     public record FactorResponse(double Product);
     public class FactorRequestHandler : IRequestHandler<FactorRequest, FactorResponse>
     {
         private readonly ILogger<FactorRequestHandler> _logger;
-        public FactorRequestHandler(ILogger<FactorRequestHandler> logger)
+        private readonly IJournalService _journalService;
+        public FactorRequestHandler(ILogger<FactorRequestHandler> logger, IJournalService journalService)
         {
             _logger = logger;
+            _journalService = journalService;
         }
 
         public Task<FactorResponse> Handle(FactorRequest request, CancellationToken cancellationToken)
         {
             if (request.Factors == null) throw new ArgumentNullException();
 
-            _logger.LogDebug($"Calculating {string.Join(" x ", request.Factors)}");
             Factor factor = new(request.Factors!);
-            _logger.LogDebug($"Product is {factor.Value}");
+            _logger.LogDebug($"Calculated {factor}");
+
+            if (!string.IsNullOrEmpty(request.XEviTrackingID))
+                _journalService.Add(factor, request.XEviTrackingID);
             return Task.FromResult(new FactorResponse(factor.Value));
         }
     }
