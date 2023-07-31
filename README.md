@@ -29,5 +29,8 @@ You can see:
 **Usage CalculatorService-Client.exe Operation [values] [User-id]
 Operation: add, sub, mult, div, sqrt, journal**
 
+## Log
+The log is created in a folder called **Log** that is created wherever the CalculatorService.Server application **is run**.
+
 
 
