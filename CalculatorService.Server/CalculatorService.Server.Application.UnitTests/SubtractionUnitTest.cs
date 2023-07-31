@@ -55,7 +55,7 @@ namespace CalculatorService.Server.Application.UnitTests
         [Fact]
         public async Task SubtractionGetResult()
         {
-            SubtractionRequest subtractionRequest = new(8,-4);
+            SubtractionRequest subtractionRequest = new(8, 4);
             Mock<ILogger<SubtractionRequestHandler>> logger = new();
             Mock<IJournalService> journal = new();
             SubtractionRequestHandler requestHandler = new(logger.Object, journal.Object);

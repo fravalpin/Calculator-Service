@@ -12,7 +12,7 @@ namespace CalculatorService.Server.Domain.UnitTests
         {
             //setup
             double minuend = 1;
-            double subtrahend = -1;
+            double subtrahend = 1;
 
             //act
             Subtraction subtraction = new(minuend, subtrahend);
@@ -26,7 +26,7 @@ namespace CalculatorService.Server.Domain.UnitTests
         {
             //setup
             double minuend = 1.5;
-            double subtrahend = -1.5;
+            double subtrahend = 1.5;
 
             //act
             Subtraction subtraction = new(minuend, subtrahend);
@@ -46,7 +46,7 @@ namespace CalculatorService.Server.Domain.UnitTests
             Subtraction subtraction = new(minuend, subtrahend);
 
             //asserts
-            subtraction.Value.Should().Be(-2);
+            subtraction.Value.Should().Be(0);
         }
 
         [Fact]
@@ -54,7 +54,7 @@ namespace CalculatorService.Server.Domain.UnitTests
         {
             //setup
             double minuend = 3;
-            double subtrahend = -7;
+            double subtrahend = 7;
 
             //act
             Subtraction subtraction = new(minuend, subtrahend);
@@ -74,7 +74,7 @@ namespace CalculatorService.Server.Domain.UnitTests
             Subtraction subtraction = new(minuend, subtrahend);
 
             //asserts
-            subtraction.Value.Should().Be(0);
+            subtraction.Value.Should().Be(-2);
         }
 
 

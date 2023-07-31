@@ -21,10 +21,10 @@ namespace CalculatorService.Server.Domain.UnitTests.Journal
         [Fact]
         public void JounalCreateSubtraction()
         {
-            Subtraction subtraction = new(3 ,-7);
+            Subtraction subtraction = new(3 ,7);
             OperationJournal operationJournal = new(subtraction);
 
-            operationJournal.Calculation.Should().Be("3 -7 = -4");
+            operationJournal.Calculation.Should().Be("3 - 7 = -4");
             operationJournal.Operation.Should().Be("Sub");
             operationJournal.Date.Day.Should().Be(DateTime.Now.Day);
         }
